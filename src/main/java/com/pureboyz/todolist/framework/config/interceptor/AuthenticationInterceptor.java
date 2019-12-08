@@ -2,7 +2,6 @@ package com.pureboyz.todolist.framework.config.interceptor;
 
 import java.util.Map.Entry;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,14 +30,11 @@ public class AuthenticationInterceptor implements HandlerInterceptor
 
         FrameworkBeans.setHttpServletBean(_httpServletRequest, _httpServletResponse);
         
-        String 	sequser = null;
-        String 	id 		= null;
-        sequser = FrameworkBeans.findSessionBean().getSequser();
-        id 		= FrameworkBeans.findSessionBean().getId();
+        String 	sequserinfo = FrameworkBeans.findSessionBean().getSESSION_SEQUSERINFO();
         
         String[] noSessionUrls = new String[] {"", "/", "/login"};
         
-        if( (FrameworkUtils.inArray(noSessionUrls, url) == -1) && ( sequser == null ) )
+        if( (FrameworkUtils.inArray(noSessionUrls, url) == -1) && ( sequserinfo == null ) )
         {
     		_httpServletResponse.sendRedirect("/");
         	return false;

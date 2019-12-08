@@ -8,31 +8,34 @@ import org.springframework.stereotype.Component;
 @Scope(value="session")
 public class SessionBean
 {
-	String 	sequser = null;
-	String 	id 		= null;
-	String 	passwd 	= null;
+	String 	SESSION_SEQUSERINFO = null;
+	String 	SESSION_ID 		= null;
+	String 	SESSION_PASSWD 	= null;
 	
-	public String getSequser() {
-		return sequser;
+	public String getSESSION_SEQUSERINFO() {
+		return SESSION_SEQUSERINFO;
 	}
-	public void setSequser(String sequser) {
-		this.sequser = sequser;
+	public void setSESSION_SEQUSERINFO(String sESSION_SEQUSERINFO) {
+		SESSION_SEQUSERINFO = sESSION_SEQUSERINFO;
 	}
-	public String getId() {
-		return id;
+	public String getSESSION_ID() {
+		return SESSION_ID;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setSESSION_ID(String sESSION_ID) {
+		SESSION_ID = sESSION_ID;
 	}
-	public String getPasswd() {
-		return passwd;
+	public String getSESSION_PASSWD() {
+		return SESSION_PASSWD;
 	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setSESSION_PASSWD(String sESSION_PASSWD) {
+		SESSION_PASSWD = sESSION_PASSWD;
 	}
 	
 	@Override
 	public String toString() {
-		return "SessionBean [sequser=" + sequser + ", id=" + id + ", passwd=" + passwd + "]";
+		return "SessionBean [SESSION_SEQUSERINFO=" + SESSION_SEQUSERINFO + ", SESSION_ID=" + SESSION_ID + ", SESSION_PASSWD="
+				+ SESSION_PASSWD + "]";
 	}
+	
+	
 }

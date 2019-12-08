@@ -4,14 +4,14 @@
 <mapper namespace="com.pureboyz.todolist.mapper.user.UserMapper">
 	<select id="SelectUserByIdAndPassword" parameterType="hashMap" resultType="hashMap">
 		SELECT
-			 SEQUSER
+			 SEQUSERINFO
 			,ID
 			,PASSWD
 			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
 			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
 			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
 		FROM
-			USER
+			USERINFO
 		WHERE 1=1
 			AND ID 		= #{id}
 			AND PASSWD 	= PASSWORD(#{password})

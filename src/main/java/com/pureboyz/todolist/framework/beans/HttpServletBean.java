@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -63,8 +61,8 @@ public class HttpServletBean
 			mmClientRequestParameter.put(key,this.getStringParams(key).length>1||key.indexOf("[]")!=-1?this.getStringParams(key):this.getStringParam(key));
 		}
 		
-		mmClientRequestParameter.put("sequser", FrameworkBeans.findSessionBean().getSequser());
-		mmClientRequestParameter.put("id", FrameworkBeans.findSessionBean().getId());
+		mmClientRequestParameter.put("SESSION_SEQUSERINFO", FrameworkBeans.findSessionBean().getSESSION_SEQUSERINFO());
+		mmClientRequestParameter.put("SESSION_ID", FrameworkBeans.findSessionBean().getSESSION_ID());
 		
 		return mmClientRequestParameter;
 	}

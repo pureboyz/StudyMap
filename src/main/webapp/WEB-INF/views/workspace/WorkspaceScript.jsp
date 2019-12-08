@@ -3,7 +3,6 @@
 $(document).ready(function(){
 	// Add 버튼
 	$(".btnAdd").click(function(){
-		console.log('###');
 		$(this).parent("li").prepend("<li><input type='text' class='input_title' /><button>Add</button></li>");
 	});
 });

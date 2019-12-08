@@ -10,6 +10,9 @@
 		<div class="container">
 			<h1>Workspace</h1>
 			<ul>
+				<c:forEach items="${list}" var="list">
+					<li><span>${list.title}</span></li>
+				</c:forEach>
 				<li><span class="btnAdd"><img class="add_line" alt="add" src="/images/add-line.png"/>Add..</span></li>
 			</ul>
 		</div>

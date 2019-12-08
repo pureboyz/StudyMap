@@ -76,8 +76,8 @@ public class IndexAct
 		Map<String, Object> resultMap = indexService.SelectUserByIdAndPassword(userMap);
 		if(resultMap.size() > 0)
 		{
-			FrameworkBeans.findSessionBean().setSequser(resultMap.get("SEQUSER").toString());
-			FrameworkBeans.findSessionBean().setId(resultMap.get("ID").toString());
+			FrameworkBeans.findSessionBean().setSESSION_SEQUSERINFO(resultMap.get("SEQUSERINFO").toString());
+			FrameworkBeans.findSessionBean().setSESSION_ID(resultMap.get("ID").toString());
 			return "Success!";
 		}
 		else
