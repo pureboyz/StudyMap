@@ -63,6 +63,7 @@ public class HttpServletBean
 			mmClientRequestParameter.put(key,this.getStringParams(key).length>1||key.indexOf("[]")!=-1?this.getStringParams(key):this.getStringParam(key));
 		}
 		
+		mmClientRequestParameter.put("sequser", FrameworkBeans.findSessionBean().getSequser());
 		mmClientRequestParameter.put("id", FrameworkBeans.findSessionBean().getId());
 		
 		return mmClientRequestParameter;

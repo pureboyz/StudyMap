@@ -1,6 +1,5 @@
 package com.pureboyz.todolist.web.index.service;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -37,7 +36,7 @@ public class IndexService
 	 * 
 	 * </pre>
 	 */
-	public List<Map<String, Object>> SelectUserByIdAndPassword(Map<String, String> userMap)
+	public Map<String, Object> SelectUserByIdAndPassword(Map<String, String> userMap)
 	{
 		return userMapper.SelectUserByIdAndPassword(userMap);
 	}

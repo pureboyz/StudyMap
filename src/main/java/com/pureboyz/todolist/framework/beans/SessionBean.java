@@ -8,9 +8,16 @@ import org.springframework.stereotype.Component;
 @Scope(value="session")
 public class SessionBean
 {
-	String id 		= null;
-	String passwd 	= null;
+	String 	sequser = null;
+	String 	id 		= null;
+	String 	passwd 	= null;
 	
+	public String getSequser() {
+		return sequser;
+	}
+	public void setSequser(String sequser) {
+		this.sequser = sequser;
+	}
 	public String getId() {
 		return id;
 	}
@@ -26,7 +33,6 @@ public class SessionBean
 	
 	@Override
 	public String toString() {
-		return "SessionBean [id=" + id + ", passwd=" + passwd + "]";
+		return "SessionBean [sequser=" + sequser + ", id=" + id + ", passwd=" + passwd + "]";
 	}
-	
 }

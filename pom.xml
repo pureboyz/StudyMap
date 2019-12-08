@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pureboyz</groupId>
 	<artifactId>TodoList</artifactId>
-	<version>20191208_001</version>
+	<version>20191208_002</version>
 	<packaging>war</packaging>
 	<name>TodoList</name>
 	<description>TodoList</description>

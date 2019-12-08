@@ -73,10 +73,11 @@ public class IndexAct
 		userMap.put("id", 		id);
 		userMap.put("password", password);
 		
-		List<Map<String, Object>> resultList = indexService.SelectUserByIdAndPassword(userMap);
-		if(resultList.size() > 0)
+		Map<String, Object> resultMap = indexService.SelectUserByIdAndPassword(userMap);
+		if(resultMap.size() > 0)
 		{
-			FrameworkBeans.findSessionBean().setId(id);
+			FrameworkBeans.findSessionBean().setSequser(resultMap.get("SEQUSER").toString());
+			FrameworkBeans.findSessionBean().setId(resultMap.get("ID").toString());
 			return "Success!";
 		}
 		else

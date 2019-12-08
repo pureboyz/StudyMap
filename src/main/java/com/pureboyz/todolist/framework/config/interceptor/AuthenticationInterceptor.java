@@ -31,12 +31,14 @@ public class AuthenticationInterceptor implements HandlerInterceptor
 
         FrameworkBeans.setHttpServletBean(_httpServletRequest, _httpServletResponse);
         
-        String id = null;
-        id = FrameworkBeans.findSessionBean().getId();
+        String 	sequser = null;
+        String 	id 		= null;
+        sequser = FrameworkBeans.findSessionBean().getSequser();
+        id 		= FrameworkBeans.findSessionBean().getId();
         
         String[] noSessionUrls = new String[] {"", "/", "/login"};
         
-        if( (FrameworkUtils.inArray(noSessionUrls, url) == -1) && ( id == null ) )
+        if( (FrameworkUtils.inArray(noSessionUrls, url) == -1) && ( sequser == null ) )
         {
     		_httpServletResponse.sendRedirect("/");
         	return false;
