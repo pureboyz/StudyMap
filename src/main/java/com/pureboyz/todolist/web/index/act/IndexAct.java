@@ -100,10 +100,25 @@ public class IndexAct
 	 * </pre>
 	 */
 	@RequestMapping("/Workspace")
-	public String Workspace(Model model)
+	public String Workspace(Model model, String seqworkspace)
 	{
 		List<Map<String, Object>> workspaceList = workspaceService.SelectWorkspaceList();
 		model.addAttribute("list", workspaceList);
+		
+		if(workspaceList.size() > 0)
+		{
+			Map<String, Object> workspaceMap = new HashMap<>();
+			if(seqworkspace != null)
+			{
+				workspaceMap = workspaceService.SelectedWorkspace(seqworkspace);
+			}
+			else
+			{
+				workspaceMap.put("SEQWORKSPACE", workspaceList.get(0).get("SEQWORKSPACE"));
+			}
+			model.addAttribute("workspaceMap", workspaceMap);
+		}
+		
 		
 		return "/workspace/Workspace";
 	}

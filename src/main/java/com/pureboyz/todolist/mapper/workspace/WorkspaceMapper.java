@@ -35,4 +35,49 @@ public interface WorkspaceMapper
 	 */
 	List<Map<String, Object>> SelectWorkspaceList();
 
+	/**
+	 * <pre>
+	 * MethodName 	: SelectWorkspaceByTitleAndUserid
+	 * Date 		: 2019. 12. 8.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Map<String, Object>
+	 * ReturnType 	: Map<String,Object>
+	 *
+	 * title과 sequser로 Workspace를 가져온다.
+	 * 
+	 * </pre>
+	 */
+	Map<String, Object> SelectWorkspaceByTitleAndSequser(Map<String, Object> paramMap);
+
+	/**
+	 * <pre>
+	 * MethodName 	: InsertWorkspace
+	 * Date 		: 2019. 12. 8.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Map<String, Object>
+	 * ReturnType 	: int
+	 *
+	 * Workspace를 추가한다.
+	 * 
+	 * </pre>
+	 */
+	int InsertWorkspace(Map<String, Object> paramMap);
+
+	/**
+	 * <pre>
+	 * MethodName 	: SelectedWorkspace
+	 * Date 		: 2019. 12. 8.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: String
+	 * ReturnType 	: Map<String,Object>
+	 *
+	 * 현재 선택된 Workspace
+	 * 
+	 * </pre>
+	 */
+	Map<String, Object> SelectedWorkspace(String seqworkspace);
+
 }

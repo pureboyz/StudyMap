@@ -10,10 +10,16 @@
 		<div class="container">
 			<h1>Workspace</h1>
 			<ul>
-				<c:forEach items="${list}" var="list">
-					<li><span>${list.title}</span></li>
+				<c:forEach items="${list}" var="data">
+					<li onclick="javascript:fn_ChangeWorkspace('${data.SEQWORKSPACE}');">
+						<span>
+							<img alt="list" src="/images/file-list-2-line.png"/>
+							<span>&nbsp;&nbsp;${data.TITLE}</span>
+							<c:if test="${workspaceMap.SEQWORKSPACE eq data.SEQWORKSPACE}">&nbsp;<img class="selected" alt="select" src="/images/heart-fill.png"/></c:if>
+						</span>
+					</li>
 				</c:forEach>
-				<li><span class="btnAdd"><img class="add_line" alt="add" src="/images/add-line.png"/>Add..</span></li>
+				<li><span class="btnAdd"><img alt="add" src="/images/add-line.png"/>Add..</span></li>
 			</ul>
 		</div>
 	</aside>

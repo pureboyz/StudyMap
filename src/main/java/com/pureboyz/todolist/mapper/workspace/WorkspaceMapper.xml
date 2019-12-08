@@ -13,4 +13,49 @@
 		FROM
 			WORKSPACE
 	</select>
+	
+	<select id="SelectWorkspaceByTitleAndSequser" parameterType="hashMap" resultType="hashMap">
+		SELECT
+			 SEQWORKSPACE
+			,TITLE
+			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
+			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
+			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
+			,SEQUSERINFO
+		FROM
+			WORKSPACE
+		WHERE 1=1
+			AND TITLE 		= #{title}
+			AND SEQUSERINFO = #{sequserinfo}
+	</select>
+	
+	<insert id="InsertWorkspace" parameterType="hashMap">
+		INSERT INTO
+			WORKSPACE
+		(
+			 TITLE
+			,CREATEDATE
+			,SEQUSERINFO
+		)
+		VALUES
+		(
+			 #{title}
+			,now()
+			,#{sequserinfo}
+		)
+	</insert>
+	
+	<select id="SelectedWorkspace" parameterType="String" resultType="hashMap">
+		SELECT
+			 SEQWORKSPACE
+			,TITLE
+			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
+			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
+			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
+			,SEQUSERINFO
+		FROM
+			WORKSPACE
+		WHERE 1=1
+			AND SEQWORKSPACE = #{seqworkspace}
+	</select>
 </mapper>

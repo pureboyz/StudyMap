@@ -22,8 +22,10 @@ aside .container { padding:20px 0; }
 aside .container h1 { margin-bottom:10px; }
 aside .container ul { margin:0 0 20px 30px; }
 aside .container ul li { margin-bottom:5px;font-size:20px; }
-aside .container ul li span { color:#7d7d7d;cursor:pointer; }
-aside .container ul li img.add_line { height:20px;margin-top:-5px;vertical-align:middle; }
+aside .container ul li span { color:#252525;cursor:pointer; }
+aside .container ul li span.btnAdd { color:#7d7d7d;cursor:pointer; }
+aside .container ul li img { height:20px;margin-top:-2px;vertical-align:middle; }
+aside .container ul li img.selected { height:13px;margin-top:-2px;vertical-align:middle; }
 aside .container ul li input[type=text].input_title { vertical-align:middle;width:150px;height:25px;font-size:15px;border:1px solid gray; }
 aside .container ul li button { vertical-align:middle;width:35px;height:27px;margin-left:-1px;border:1px solid gray;background-color:aliceblue;cursor:pointer; }
 

@@ -8,7 +8,7 @@
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<link type="text/css" rel="stylesheet" href="/css/style.css?20191208_003">
+<link type="text/css" rel="stylesheet" href="/css/style.css?20191208_006">
 <link type="text/css" rel="stylesheet" href="/css/default.css?20191207_001">
 
 </head>
