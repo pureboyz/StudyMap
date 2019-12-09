@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pureboyz</groupId>
-	<artifactId>TodoList</artifactId>
-	<version>20191209_001</version>
+	<artifactId>StudyMap</artifactId>
+	<version>20191209_002</version>
 	<packaging>war</packaging>
-	<name>TodoList</name>
-	<description>TodoList</description>
+	<name>StudyMap</name>
+	<description>StudyMap</description>
 
 	<properties>
 		<java.version>1.8</java.version>
