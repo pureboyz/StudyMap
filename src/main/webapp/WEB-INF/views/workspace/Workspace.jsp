@@ -28,7 +28,147 @@
 		<div class="container">
 			<c:choose>
 				<c:when test="${fn:length(list) > 0}">
-					<h1>Hello!</h1>
+					<div class="postingList">
+						<table>
+							<colgroup>
+								<col width="10%" />
+								<col width="10%" />
+								<col width="" />
+								<col width="20%" />
+								<col width="20%" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th><input type="checkbox" id="checkAll" /></th>
+									<th><span>No</span></th>
+									<th><span>제목</span></th>
+									<th><span>작성일</span></th>
+									<th><span>작성자</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>1</span></td>
+									<td><span class="pointer">첫번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>2</span></td>
+									<td><span class="pointer">두번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>3</span></td>
+									<td><span class="pointer">세번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>4</span></td>
+									<td><span class="pointer">네번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>5</span></td>
+									<td><span class="pointer">다섯번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>1</span></td>
+									<td><span class="pointer">첫번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>2</span></td>
+									<td><span class="pointer">두번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>3</span></td>
+									<td><span class="pointer">세번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>4</span></td>
+									<td><span class="pointer">네번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>5</span></td>
+									<td><span class="pointer">다섯번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>1</span></td>
+									<td><span class="pointer">첫번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>2</span></td>
+									<td><span class="pointer">두번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>3</span></td>
+									<td><span class="pointer">세번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>4</span></td>
+									<td><span class="pointer">네번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+								<tr>
+									<td><span><input type="checkbox" /></span></td>
+									<td><span>5</span></td>
+									<td><span class="pointer">다섯번재 게시글입니다.</span></td>
+									<td><span>2019-12-09 21:18:43</span></td>
+									<td><span>pureboyz</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pagination">
+							<span><img alt="left" src="/images/arrow-left-s-line.png"/></span>
+							<c:forEach var="i" begin="1" end="10" step="1">
+								<c:choose>
+									<c:when test="${i eq 4}">
+										<span class="on">${i}</span>
+									</c:when>
+									<c:otherwise>
+										<span>${i}</span>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<span><img alt="rightt" src="/images/arrow-right-s-line.png"/></span>
+						</div>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<div class="emptyWorkspace">

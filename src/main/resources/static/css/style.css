@@ -1,3 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+* { font-family: 'Nanum Gothic', sans-serif; }
+/* @import url('https://fonts.googleapis.com/css?family=Sunflower:300&display=swap&subset=korean'); */
+/* * { font-family: 'Sunflower', sans-serif; } */
+
 /* header */
 header { width:100%;padding:20px 0;border-bottom:1px solid #ccc; }
 header .container { margin:0 auto;width:80%;height:10vh;padding:0 15px; }
@@ -5,12 +11,15 @@ header .container .left_menu { float:left;width:20%; }
 header .container .left_menu .navi ul li { display:inline-block;line-height:10vh; }
 header .container .left_menu .navi ul li a { font-size:35px;font-weight:600; }
 header .container .right_menu { float:left;width:80%;text-align:right; }
+header .container .right_menu .navi { display:inline-block; }
 header .container .right_menu .navi ul li { display:inline-block;line-height:10vh;height:10vh;padding:0 15px;margin:0 15px; }
 header .container .right_menu .navi ul li.on { border-bottom:2px solid #252525;margin-bottom:-2px; }
 header .container .right_menu .navi ul li.hover { border-bottom:2px solid #252525;margin-bottom:-2px; }
 header .container .right_menu .navi ul li a { color:#a8a8a8;font-size:17px;font-weight:600; }
 header .container .right_menu .navi ul li a.on { color:#252525; }
 header .container .right_menu .navi ul li a.hover { color:#252525; }
+header .container .right_menu .option { display:inline-block;vertical-align:middle;height:10vh; }
+header .container .right_menu .option img { margin-right:-55px;cursor:pointer; }
 header .container .right_menu:after { content:"";display:block;clear:both; }
 
 /* main_container */
@@ -27,10 +36,19 @@ aside .container ul li span.btnAdd { color:#7d7d7d;cursor:pointer; }
 aside .container ul li img { height:20px;margin-top:-2px;vertical-align:middle; }
 aside .container ul li img.selected { height:13px;margin-top:-2px;vertical-align:middle; }
 aside .container ul li input[type=text].input_title { vertical-align:middle;width:150px;height:25px;font-size:15px;border:1px solid gray; }
-aside .container ul li button { vertical-align:middle;width:35px;height:27px;margin-left:-1px;border:1px solid gray;background-color:aliceblue;cursor:pointer; }
+aside .container ul li button { vertical-align:middle;width:35px;height:27px;margin-left:-6px;border:1px solid gray;background-color:aliceblue;cursor:pointer; }
 
 /* section */
 section { float:left;padding:50px 0 0 100px;margin-right:-100px;width:85%;height:80vh; }
 section:after { content:"";display:block;clear:both; }
 section .container { height:95%;margin-right:50px; }
+section .container .postingList { width:100%; }
+section .container .postingList table { width:100%;text-align:center;border-top:1px solid #ccc;border-collapse:collapse; }
+section .container .postingList table thead tr { background:#eee; }
+section .container .postingList table th { font-size:18px;line-height:2;border-bottom:1px solid #ccc; }
+section .container .postingList table td { font-size:15px;line-height:2.5;border-bottom:1px solid #ccc; }
+section .container .postingList div.pagination { text-align:center;padding:30px 0;font-size:20px; }
+section .container .postingList div.pagination span { text-align:center;padding:5px;cursor:pointer;color:#888888; }
+section .container .postingList div.pagination span.on { color:#252525;font-weight:bold; }
+section .container .postingList div.pagination span img { vertical-align:bottom; }
 section .container div.emptyWorkspace { text-align:center;font-size:20px; }

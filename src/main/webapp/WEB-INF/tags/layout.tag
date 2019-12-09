@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>What is this?</title>
+<title>Sturdy Map</title>
 
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 
-<link type="text/css" rel="stylesheet" href="/css/style.css?20191208_006">
-<link type="text/css" rel="stylesheet" href="/css/default.css?20191207_001">
+<link type="text/css" rel="stylesheet" href="/css/style.css?20191209_001">
+<link type="text/css" rel="stylesheet" href="/css/default.css?20191209_001">
 
 </head>
 <body>
@@ -19,7 +21,7 @@
 			<div class="left_menu">
 				<div class="navi">
 					<ul>
-						<li><a href="/">What is this?</a></li>
+						<li><a href="/">Sturdy Map</a></li>
 					</ul>
 				</div>
 			</div>
@@ -29,6 +31,9 @@
 						<li><a href="/Workspace">Workspace</a></li>
 						<li><a href="/Schedule">Schedule</a></li>
 					</ul>
+				</div>
+				<div class="option">
+					<img alt="left" src="/images/menu-line.png"/>
 				</div>
 			</div>
 		</div>

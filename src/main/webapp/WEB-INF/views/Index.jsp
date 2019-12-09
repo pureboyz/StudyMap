@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>What is this?</title>
+<title>Study Map</title>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 

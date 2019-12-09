@@ -8,3 +8,5 @@ li { list-style:none; }
 .btn-default { border:1px solid #d3d3d3;border-radius:6px;padding:10px 26px;font-size:12px;font-weight:600;cursor:pointer; }
 .btn-primary-sm { border:1px solid #4394f0;background:#4394f0;color:#fff;border-radius:6px;padding:10px 26px;font-size:12px;font-weight:600;cursor:pointer; }
 .btn-primary-lg { border:1px solid #4394f0;background:#4394f0;color:#fff;border-radius:6px;padding:7px;font-size:15px;font-weight:600;cursor:pointer; }
+
+.pointer { cursor:pointer; }
