@@ -28,10 +28,10 @@ import com.pureboyz.studymap.web.workspace.service.WorkspaceService;
 @Controller
 public class IndexAct
 {
-	@Resource(name="com.pureboyz.todolist.web.workspace.service.WorkspaceService")
+	@Resource(name="com.pureboyz.studymap.web.workspace.service.WorkspaceService")
 	WorkspaceService workspaceService;
 	
-	@Resource(name="com.pureboyz.todolist.web.index.service.IndexService")
+	@Resource(name="com.pureboyz.studymap.web.index.service.IndexService")
 	IndexService indexService;
 	
 	/**

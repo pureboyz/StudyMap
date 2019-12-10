@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  * </pre>
  */
 @Mapper
-@Repository("com.pureboyz.todolist.mapper.user.UserMapper")
+@Repository("com.pureboyz.studymap.mapper.user.UserMapper")
 public interface UserMapper
 {
 

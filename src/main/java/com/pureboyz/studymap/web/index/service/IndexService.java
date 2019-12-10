@@ -17,10 +17,10 @@ import com.pureboyz.studymap.mapper.user.UserMapper;
  * 
  * </pre>
  */
-@Service("com.pureboyz.todolist.web.index.service.IndexService")
+@Service("com.pureboyz.studymap.web.index.service.IndexService")
 public class IndexService
 {
-	@Resource(name="com.pureboyz.todolist.mapper.user.UserMapper")
+	@Resource(name="com.pureboyz.studymap.mapper.user.UserMapper")
 	UserMapper userMapper;
 
 	/**

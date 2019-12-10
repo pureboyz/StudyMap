@@ -18,10 +18,10 @@ import com.pureboyz.studymap.mapper.workspace.WorkspaceMapper;
  * 
  * </pre>
  */
-@Service("com.pureboyz.todolist.web.workspace.service.WorkspaceService")
+@Service("com.pureboyz.studymap.web.workspace.service.WorkspaceService")
 public class WorkspaceService
 {
-	@Resource(name="com.pureboyz.todolist.mapper.workspace.WorkspaceMapper")
+	@Resource(name="com.pureboyz.studymap.mapper.workspace.WorkspaceMapper")
 	WorkspaceMapper workspaceMapper;
 
 	/**

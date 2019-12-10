@@ -27,7 +27,7 @@ import com.pureboyz.studymap.web.workspace.service.WorkspaceService;
 @Controller
 public class WorkspaceAct
 {
-	@Resource(name="com.pureboyz.todolist.web.workspace.service.WorkspaceService")
+	@Resource(name="com.pureboyz.studymap.web.workspace.service.WorkspaceService")
 	WorkspaceService workspaceService;
 	
 	/**

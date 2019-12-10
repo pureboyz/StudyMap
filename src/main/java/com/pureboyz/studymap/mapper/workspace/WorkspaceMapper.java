@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  * </pre>
  */
 @Mapper
-@Repository("com.pureboyz.todolist.mapper.workspace.WorkspaceMapper")
+@Repository("com.pureboyz.studymap.mapper.workspace.WorkspaceMapper")
 public interface WorkspaceMapper
 {
 
