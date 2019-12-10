@@ -1,10 +1,12 @@
 package com.pureboyz.studymap.mapper.workspace;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import com.pureboyz.studymap.framework.mymap.MyCamelMap;
+import com.pureboyz.studymap.framework.mymap.MyMap;
 
 /**
  * <pre>
@@ -26,14 +28,15 @@ public interface WorkspaceMapper
 	 * Date 		: 2019. 12. 8.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: 
-	 * ReturnType 	: List<Map<String,Object>>
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: List<MyCamelMap>
 	 *
 	 * Workspace List를 가져온다.
 	 * 
 	 * </pre>
+	 * @param paramMap 
 	 */
-	List<Map<String, Object>> SelectWorkspaceList();
+	List<MyCamelMap> SelectWorkspaceListBySequser(MyMap paramMap);
 
 	/**
 	 * <pre>
@@ -41,14 +44,14 @@ public interface WorkspaceMapper
 	 * Date 		: 2019. 12. 8.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: Map<String, Object>
-	 * ReturnType 	: Map<String,Object>
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: MyCamelMap
 	 *
 	 * title과 sequser로 Workspace를 가져온다.
 	 * 
 	 * </pre>
 	 */
-	Map<String, Object> SelectWorkspaceByTitleAndSequser(Map<String, Object> paramMap);
+	MyCamelMap SelectWorkspaceByTitleAndSequser(MyMap paramMap);
 
 	/**
 	 * <pre>
@@ -56,14 +59,14 @@ public interface WorkspaceMapper
 	 * Date 		: 2019. 12. 8.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: Map<String, Object>
+	 * ParamsType 	: MyMap
 	 * ReturnType 	: int
 	 *
 	 * Workspace를 추가한다.
 	 * 
 	 * </pre>
 	 */
-	int InsertWorkspace(Map<String, Object> paramMap);
+	int InsertWorkspace(MyMap paramMap);
 
 	/**
 	 * <pre>
@@ -71,13 +74,13 @@ public interface WorkspaceMapper
 	 * Date 		: 2019. 12. 8.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: String
-	 * ReturnType 	: Map<String,Object>
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: MyCamelMap
 	 *
 	 * 현재 선택된 Workspace
 	 * 
 	 * </pre>
 	 */
-	Map<String, Object> SelectedWorkspace(String seqworkspace);
+	MyCamelMap SelectedWorkspace(MyMap paramMap);
 
 }

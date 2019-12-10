@@ -1,8 +1,5 @@
 package com.pureboyz.studymap.web.workspace.act;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pureboyz.studymap.framework.beans.FrameworkBeans;
+import com.pureboyz.studymap.framework.mymap.MyCamelMap;
+import com.pureboyz.studymap.framework.mymap.MyMap;
 import com.pureboyz.studymap.framework.result.ResultCode;
 import com.pureboyz.studymap.framework.result.ResultMessage;
 import com.pureboyz.studymap.web.workspace.service.WorkspaceService;
@@ -44,14 +43,11 @@ public class WorkspaceAct
 	 * </pre>
 	 */
 	@RequestMapping("/InsertWorkspace")
-	public @ResponseBody ResultMessage InsertWorkspace(String title)
+	public @ResponseBody ResultMessage InsertWorkspace()
 	{
-		Map<String, Object> paramMap = new HashMap<>();
-		paramMap.put("title", 		title);
-		paramMap.put("id", 			FrameworkBeans.findSessionBean().getSESSION_ID());
-		paramMap.put("sequserinfo", FrameworkBeans.findSessionBean().getSESSION_SEQUSERINFO());
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		
-		Map<String, Object> resultMap = workspaceService.SelectWorkspaceByTitleAndSequser(paramMap);
+		MyCamelMap resultMap = workspaceService.SelectWorkspaceByTitleAndSequser(paramMap);
 		if(resultMap != null)
 		{
 			return new ResultMessage(ResultCode.RESULT_BAD_REQUEST, "Fail!", "이미 등록된 이름입니다.");

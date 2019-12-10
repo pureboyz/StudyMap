@@ -32,7 +32,8 @@ function fn_AddWorkspace()
 // Workspace 이동.
 function fn_ChangeWorkspace(seqworkspace)
 {
-	location.href="/Workspace?seqworkspace="+seqworkspace;
+	$("[name=seqworkspace]").val(seqworkspace);
+	$("[name=changeWorkspace]").submit();
 }
 $(document).ready(function(){
 	// ckeditor textarea의 name을 editor로 지정.

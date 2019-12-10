@@ -1,8 +1,6 @@
 package com.pureboyz.studymap.web.index.act;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -12,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pureboyz.studymap.framework.beans.FrameworkBeans;
+import com.pureboyz.studymap.framework.mymap.MyCamelMap;
+import com.pureboyz.studymap.framework.mymap.MyMap;
 import com.pureboyz.studymap.web.index.service.IndexService;
 import com.pureboyz.studymap.web.workspace.service.WorkspaceService;
 
@@ -67,17 +67,15 @@ public class IndexAct
 	 * </pre>
 	 */
 	@RequestMapping("/login")
-	public @ResponseBody String login(String id, String password)
+	public @ResponseBody String login()
 	{
-		Map<String, String> userMap = new HashMap<>();
-		userMap.put("id", 		id);
-		userMap.put("password", password);
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
 		
-		Map<String, Object> resultMap = indexService.SelectUserByIdAndPassword(userMap);
-		if(resultMap.size() > 0)
+		MyCamelMap resultMap = indexService.SelectUserByIdAndPassword(paramMap);
+		if(resultMap != null)
 		{
-			FrameworkBeans.findSessionBean().setSESSION_SEQUSERINFO(resultMap.get("SEQUSERINFO").toString());
-			FrameworkBeans.findSessionBean().setSESSION_ID(resultMap.get("ID").toString());
+			FrameworkBeans.findSessionBean().setSESSION_SEQUSERINFO(String.valueOf(resultMap.getInt("sequserinfo")));
+			FrameworkBeans.findSessionBean().setSESSION_ID(resultMap.getStr("id"));
 			return "Success!";
 		}
 		else
@@ -100,25 +98,26 @@ public class IndexAct
 	 * </pre>
 	 */
 	@RequestMapping("/Workspace")
-	public String Workspace(Model model, String seqworkspace)
+	public String Workspace(Model model)
 	{
-		List<Map<String, Object>> workspaceList = workspaceService.SelectWorkspaceList();
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		List<MyCamelMap> workspaceList = workspaceService.SelectWorkspaceListBySequser(paramMap);
 		model.addAttribute("list", workspaceList);
 		
 		if(workspaceList.size() > 0)
 		{
-			Map<String, Object> workspaceMap = new HashMap<>();
-			if(seqworkspace != null)
+			MyCamelMap workspaceMap = new MyCamelMap();
+			if(!paramMap.getStr("seqworkspace", "").equals(""))
 			{
-				workspaceMap = workspaceService.SelectedWorkspace(seqworkspace);
+				workspaceMap = workspaceService.SelectedWorkspace(paramMap);
 			}
 			else
 			{
-				workspaceMap.put("SEQWORKSPACE", workspaceList.get(0).get("SEQWORKSPACE"));
+				workspaceMap.put("seqworkspace", workspaceList.get(0).get("seqworkspace"));
 			}
 			model.addAttribute("workspaceMap", workspaceMap);
 		}
-		
 		
 		return "/workspace/Workspace";
 	}

@@ -7,15 +7,18 @@
 
 <div class="main_container">
 	<aside>
+		<form name="changeWorkspace" action="/Workspace" method="POST">
+			<input type="hidden" name="seqworkspace" value="" />
+		</form>
 		<div class="container">
 			<h1>Workspace</h1>
 			<ul>
 				<c:forEach items="${list}" var="data">
-					<li onclick="javascript:fn_ChangeWorkspace('${data.SEQWORKSPACE}');">
+					<li onclick="javascript:fn_ChangeWorkspace('${data.seqworkspace}');">
 						<span>
 							<img alt="list" src="/images/file-list-2-line.png"/>
-							<span>&nbsp;&nbsp;${data.TITLE}</span>
-							<c:if test="${workspaceMap.SEQWORKSPACE eq data.SEQWORKSPACE}">&nbsp;<img class="selected" alt="select" src="/images/heart-fill.png"/></c:if>
+							<span>&nbsp;&nbsp;${data.title}</span>
+							<c:if test="${workspaceMap.seqworkspace eq data.seqworkspace}">&nbsp;<img class="selected" alt="select" src="/images/heart-fill.png"/></c:if>
 						</span>
 					</li>
 				</c:forEach>

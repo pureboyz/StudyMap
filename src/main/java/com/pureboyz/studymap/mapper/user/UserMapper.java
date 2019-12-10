@@ -1,9 +1,10 @@
 package com.pureboyz.studymap.mapper.user;
 
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import com.pureboyz.studymap.framework.mymap.MyCamelMap;
+import com.pureboyz.studymap.framework.mymap.MyMap;
 
 /**
  * <pre>
@@ -19,6 +20,6 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper
 {
 
-	Map<String, Object> SelectUserByIdAndPassword(Map<String, String> userMap);
+	MyCamelMap SelectUserByIdAndPassword(MyMap paramMap);
 
 }

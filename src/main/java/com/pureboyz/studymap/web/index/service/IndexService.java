@@ -1,11 +1,11 @@
 package com.pureboyz.studymap.web.index.service;
 
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.pureboyz.studymap.framework.mymap.MyCamelMap;
+import com.pureboyz.studymap.framework.mymap.MyMap;
 import com.pureboyz.studymap.mapper.user.UserMapper;
 
 /**
@@ -36,9 +36,9 @@ public class IndexService
 	 * 
 	 * </pre>
 	 */
-	public Map<String, Object> SelectUserByIdAndPassword(Map<String, String> userMap)
+	public MyCamelMap SelectUserByIdAndPassword(MyMap paramMap)
 	{
-		return userMapper.SelectUserByIdAndPassword(userMap);
+		return userMapper.SelectUserByIdAndPassword(paramMap);
 	}
 
 

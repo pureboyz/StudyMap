@@ -1,8 +1,13 @@
 package com.pureboyz.studymap.framework.mymap;
 import java.util.LinkedHashMap;
 import java.util.List;
+
+import org.apache.ibatis.type.Alias;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
+@Alias("myMap")
 public class MyMap extends LinkedHashMap<Object,Object>
 {
 	private static final long serialVersionUID = -7964609600835164119L;
@@ -142,6 +147,7 @@ public class MyMap extends LinkedHashMap<Object,Object>
 	 * @return
 	 * </pre>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<MyCamelMap> getListMyCamelMap(Object key)
 	{
 		return (List<MyCamelMap>)super.get(key);
@@ -158,6 +164,7 @@ public class MyMap extends LinkedHashMap<Object,Object>
 	 * @return
 	 * </pre>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<MyMap> getListMyMap(Object key)
 	{
 		return (List<MyMap>)super.get(key);

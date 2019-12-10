@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pureboyz.studymap.mapper.workspace.WorkspaceMapper">
-	<select id="SelectWorkspaceList" resultType="hashMap">
+	<select id="SelectWorkspaceListBySequser" parameterType="myMap" resultType="myCamelMap">
 		SELECT
 			 SEQWORKSPACE
 			,TITLE
@@ -12,9 +12,12 @@
 			,SEQUSERINFO
 		FROM
 			WORKSPACE
+		WHERE 1=1
+			AND SEQUSERINFO = #{SESSION_SEQUSERINFO}
+		ORDER BY CREATEDATE ASC
 	</select>
 	
-	<select id="SelectWorkspaceByTitleAndSequser" parameterType="hashMap" resultType="hashMap">
+	<select id="SelectWorkspaceByTitleAndSequser" parameterType="myMap" resultType="myCamelMap">
 		SELECT
 			 SEQWORKSPACE
 			,TITLE
@@ -26,10 +29,10 @@
 			WORKSPACE
 		WHERE 1=1
 			AND TITLE 		= #{title}
-			AND SEQUSERINFO = #{sequserinfo}
+			AND SEQUSERINFO = #{SESSION_SEQUSERINFO}
 	</select>
 	
-	<insert id="InsertWorkspace" parameterType="hashMap">
+	<insert id="InsertWorkspace" parameterType="myMap">
 		INSERT INTO
 			WORKSPACE
 		(
@@ -41,11 +44,11 @@
 		(
 			 #{title}
 			,now()
-			,#{sequserinfo}
+			,#{SESSION_SEQUSERINFO}
 		)
 	</insert>
 	
-	<select id="SelectedWorkspace" parameterType="String" resultType="hashMap">
+	<select id="SelectedWorkspace" parameterType="myMap" resultType="myCamelMap">
 		SELECT
 			 SEQWORKSPACE
 			,TITLE
