@@ -1,11 +1,8 @@
 package com.pureboyz.studymap.web.index.act;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -82,44 +79,6 @@ public class IndexAct
 		{
 			return "Fail!";
 		}
-	}
-	
-	/**
-	 * <pre>
-	 * MethodName 	: Workspace
-	 * Date 		: 2019. 12. 8.
-	 * Author 		: pureboyz
-	 * 
-	 * ParamsType 	: Model
-	 * ReturnType 	: String
-	 *
-	 * Workspace 메인 페이지로 이동.
-	 * 
-	 * </pre>
-	 */
-	@RequestMapping("/Workspace")
-	public String Workspace(Model model)
-	{
-		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		
-		List<MyCamelMap> workspaceList = workspaceService.SelectWorkspaceListBySequser(paramMap);
-		model.addAttribute("list", workspaceList);
-		
-		if(workspaceList.size() > 0)
-		{
-			MyCamelMap workspaceMap = new MyCamelMap();
-			if(!paramMap.getStr("seqworkspace", "").equals(""))
-			{
-				workspaceMap = workspaceService.SelectedWorkspace(paramMap);
-			}
-			else
-			{
-				workspaceMap.put("seqworkspace", workspaceList.get(0).get("seqworkspace"));
-			}
-			model.addAttribute("workspaceMap", workspaceMap);
-		}
-		
-		return "/workspace/Workspace";
 	}
 	
 	/**

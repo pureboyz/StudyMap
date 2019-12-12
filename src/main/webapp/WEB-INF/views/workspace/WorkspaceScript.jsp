@@ -9,11 +9,11 @@
 // Workspace 추가.
 function fn_AddWorkspace()
 {
-	var title = $(".input_title").val();
+	var workspaceTitle = $(".input_title").val();
 	$.ajax({
 		 url : "/Workspace/InsertWorkspace"
 		,data : {
-			title : title
+			workspaceTitle : workspaceTitle
 		}
 		,success : function(data){
 			if(data.code == "200")
@@ -36,11 +36,6 @@ function fn_ChangeWorkspace(seqworkspace)
 	$("[name=changeWorkspace]").submit();
 }
 $(document).ready(function(){
-	// ckeditor textarea의 name을 editor로 지정.
-// 	CKEDITOR.replace('editor', {
-// 		extraPlugins: 'codesnippet'
-// 	});
-	
 	// Add 버튼 (+)
 	$(".btnAdd").click(function(){
 		if($("#btnAdd").length < 1)
@@ -55,6 +50,11 @@ $(document).ready(function(){
 		{
 			return false;
 		}
+	});
+	
+	// 등록 버튼
+	$("#btnRegist").click(function(){
+		location.href="/Workspace/RegistPosting";
 	});
 	
 });

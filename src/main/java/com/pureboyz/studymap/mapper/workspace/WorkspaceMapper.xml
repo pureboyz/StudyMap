@@ -5,7 +5,7 @@
 	<select id="SelectWorkspaceListBySequser" parameterType="myMap" resultType="myCamelMap">
 		SELECT
 			 SEQWORKSPACE
-			,TITLE
+			,WORKSPACE_TITLE
 			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
 			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
 			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
@@ -20,7 +20,7 @@
 	<select id="SelectWorkspaceByTitleAndSequser" parameterType="myMap" resultType="myCamelMap">
 		SELECT
 			 SEQWORKSPACE
-			,TITLE
+			,WORKSPACE_TITLE
 			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
 			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
 			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
@@ -28,21 +28,21 @@
 		FROM
 			WORKSPACE
 		WHERE 1=1
-			AND TITLE 		= #{title}
-			AND SEQUSERINFO = #{SESSION_SEQUSERINFO}
+			AND WORKSPACE_TITLE = #{workspaceTitle}
+			AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
 	</select>
 	
 	<insert id="InsertWorkspace" parameterType="myMap">
 		INSERT INTO
 			WORKSPACE
 		(
-			 TITLE
+			 WORKSPACE_TITLE
 			,CREATEDATE
 			,SEQUSERINFO
 		)
 		VALUES
 		(
-			 #{title}
+			 #{workspaceTitle}
 			,now()
 			,#{SESSION_SEQUSERINFO}
 		)
@@ -51,7 +51,7 @@
 	<select id="SelectedWorkspace" parameterType="myMap" resultType="myCamelMap">
 		SELECT
 			 SEQWORKSPACE
-			,TITLE
+			,WORKSPACE_TITLE
 			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
 			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
 			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
@@ -60,5 +60,24 @@
 			WORKSPACE
 		WHERE 1=1
 			AND SEQWORKSPACE = #{seqworkspace}
+	</select>
+	
+	<select id="SelectPostingListBySeqworkspace" parameterType="myMap" resultType="myCamelMap">
+		SELECT
+			 SEQPOSTINGLIST
+			,POSTING_TITLE
+			,POSTING_WRITER
+			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
+			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
+			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
+			,SEQUSERINFO
+			,SEQWORKSPACE
+		FROM
+			POSTINGLIST
+		WHERE 1=1
+			AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
+			AND SEQWORKSPACE 	= #{seqworkspace}
+		ORDER BY
+			CREATEDATE DESC
 	</select>
 </mapper>

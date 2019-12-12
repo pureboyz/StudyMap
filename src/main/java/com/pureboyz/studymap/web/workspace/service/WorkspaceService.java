@@ -98,4 +98,22 @@ public class WorkspaceService
 		return workspaceMapper.SelectedWorkspace(paramMap);
 	}
 
+	/**
+	 * <pre>
+	 * MethodName 	: SelectPostingListBySeqworkspace
+	 * Date 		: 2019. 12. 12.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: List<MyCamelMap>
+	 *
+	 * 선택된 Workspace의 PostingList
+	 * 
+	 * </pre>
+	 */
+	public List<MyCamelMap> SelectPostingListBySeqworkspace(MyMap paramMap)
+	{
+		return workspaceMapper.SelectPostingListBySeqworkspace(paramMap);
+	}
+
 }

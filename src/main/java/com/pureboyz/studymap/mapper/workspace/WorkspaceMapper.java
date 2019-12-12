@@ -83,4 +83,19 @@ public interface WorkspaceMapper
 	 */
 	MyCamelMap SelectedWorkspace(MyMap paramMap);
 
+	/**
+	 * <pre>
+	 * MethodName 	: SelectPostingListBySeqworkspace
+	 * Date 		: 2019. 12. 12.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: List<MyCamelMap>
+	 *
+	 * 선택된 Workspace의 PostingList
+	 * 
+	 * </pre>
+	 */
+	List<MyCamelMap> SelectPostingListBySeqworkspace(MyMap paramMap);
+
 }
