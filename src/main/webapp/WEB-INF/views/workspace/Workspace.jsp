@@ -37,7 +37,7 @@
 										<c:when test="${fn:length(aside.postingList) > 0}">
 											<c:forEach items="${aside.postingList}" var="posting">
 												<tr>
-													<td><span><input type="checkbox" /></span></td>
+													<td><span><input type="checkbox" value="${posting.seqpostinglist}" /></span></td>
 													<td><span>${posting.rowNum}</span></td>
 													<td><span class="pointer">${posting.postingTitle}</span></td>
 													<td><span>${posting.createdate}</span></td>

@@ -14,6 +14,7 @@
 			WORKSPACE
 		WHERE 1=1
 			AND SEQUSERINFO = #{SESSION_SEQUSERINFO}
+			AND DELETEDATE IS NULL
 		ORDER BY CREATEDATE ASC
 	</select>
 	
@@ -30,6 +31,7 @@
 		WHERE 1=1
 			AND WORKSPACE_TITLE = #{workspaceTitle}
 			AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
+			AND DELETEDATE IS NULL
 	</select>
 	
 	<insert id="InsertWorkspace" parameterType="myMap">
@@ -60,6 +62,7 @@
 			WORKSPACE
 		WHERE 1=1
 			AND SEQWORKSPACE = #{seqworkspace}
+			AND DELETEDATE IS NULL
 	</select>
 	
 	<select id="SelectPostingListBySeqworkspace" parameterType="myMap" resultType="myCamelMap">
@@ -84,6 +87,7 @@
 			WHERE 1=1
 				AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
 				AND SEQWORKSPACE 	= #{seqworkspace}
+				AND DELETEDATE IS NULL
 			ORDER BY
 				CREATEDATE ASC
 		) T0
@@ -112,4 +116,13 @@
 			,#{seqworkspace}
 		)
 	</insert>
+	
+	<update id="DeletePosting" parameterType="myMap">
+		UPDATE
+			POSTINGLIST
+		SET
+			 DELETEDATE = NOW()
+		WHERE 1=1
+			AND SEQPOSTINGLIST IN ( ${seqpostinglist} )
+	</update>
 </mapper>

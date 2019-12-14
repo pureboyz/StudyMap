@@ -134,4 +134,22 @@ public class WorkspaceService
 		return workspaceMapper.InsertPosting(paramMap);
 	}
 
+	/**
+	 * <pre>
+	 * MethodName 	: DeletePosting
+	 * Date 		: 2019. 12. 14.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: int
+	 *
+	 * Posting 삭제.
+	 * 
+	 * </pre>
+	 */
+	public int DeletePosting(MyMap paramMap)
+	{
+		return workspaceMapper.DeletePosting(paramMap);
+	}
+
 }

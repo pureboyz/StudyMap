@@ -17,6 +17,15 @@ import com.pureboyz.studymap.framework.mymap.MyMap;
  * 
  * </pre>
  */
+/**
+ * <pre>
+ * Date 		: 2019. 12. 14.
+ * Author 		: pureboyz
+ *
+ * 
+ * 
+ * </pre>
+ */
 @Mapper
 @Repository("com.pureboyz.studymap.mapper.workspace.WorkspaceMapper")
 public interface WorkspaceMapper
@@ -112,5 +121,21 @@ public interface WorkspaceMapper
 	 * </pre>
 	 */
 	int InsertPosting(MyMap paramMap);
+
+	
+	/**
+		 * <pre>
+		 * MethodName 	: DeletePosting
+		 * Date 		: 2019. 12. 14.
+		 * Author 		: pureboyz
+		 * 
+		 * ParamsType 	: MyMap
+		 * ReturnType 	: int
+		 *
+		 * Posting 삭제.
+		 * 
+		 * </pre>
+		 */
+	int DeletePosting(MyMap paramMap);
 
 }

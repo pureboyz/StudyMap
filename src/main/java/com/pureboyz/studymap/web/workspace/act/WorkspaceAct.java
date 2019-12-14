@@ -109,7 +109,7 @@ public class WorkspaceAct
 	 * Author 		: pureboyz
 	 * 
 	 * ParamsType 	: 
-	 * ReturnType 	: String
+	 * ReturnType 	: ResultMessage
 	 *
 	 * Workspace 등록
 	 * 
@@ -185,6 +185,36 @@ public class WorkspaceAct
 		rttr.addAttribute("seqworkspace", paramMap.getInt("seqworkspace"));
 		
 		return "redirect:/Workspace";
+	}
+	
+	/**
+		 * <pre>
+		 * MethodName 	: DeletePosting
+		 * Date 		: 2019. 12. 14.
+		 * Author 		: pureboyz
+		 * 
+		 * ParamsType 	: 
+		 * ReturnType 	: ResultMessage
+		 *
+		 * Posting 삭제.
+		 * 
+		 * </pre>
+		 */
+	@RequestMapping("/DeletePosting")
+	public @ResponseBody ResultMessage DeletePosting()
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		int result = workspaceService.DeletePosting(paramMap);
+		
+		if(result > 0)
+		{
+			return new ResultMessage(ResultCode.RESULT_OK, "Success!");
+		}
+		else
+		{
+			return new ResultMessage(ResultCode.RESULT_BAD_REQUEST, "Fail!");
+		}
 	}
 	
 }

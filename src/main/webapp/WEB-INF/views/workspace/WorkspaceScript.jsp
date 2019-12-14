@@ -46,9 +46,43 @@ $(document).ready(function(){
 		}
 	});
 	
+	// 전체선택
+	$("#checkAll").click(function(){
+		var checkbox = $("input[type=checkbox]");
+		for(var i=0; i<checkbox.length; i++)
+		{
+			checkbox.eq(i).prop("checked", $(this).prop("checked"));
+		}
+	});
+	
 	// 등록 버튼
 	$("#btnRegist").click(function(){
 		$("[name=formRegist]").submit();
+	});
+	
+	// 삭제 버튼
+	$("#btnDelete").click(function(){
+		var selectedSeqArr = new Array();
+		var checkbox = $("tbody input[type=checkbox]");
+		for(var i=0; i<checkbox.length; i++)
+		{
+			if(checkbox.eq(i).prop("checked"))
+			{
+				selectedSeqArr.push(checkbox.eq(i).val());
+			}
+		}
+		
+		console.log(selectedSeqArr.toString());
+		
+		$.ajax({
+			 url : "/Workspace/DeletePosting"
+			,data : {
+				seqpostinglist : selectedSeqArr.toString()
+			}
+			,success : function(){
+				location.reload();
+			}
+		});
 	});
 	
 });

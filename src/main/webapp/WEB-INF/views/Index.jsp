@@ -46,7 +46,6 @@ $(document).ready(function(){
 				,password 	: $("[name=password]").val()
 			}
 			,success : function(data){
-				console.log(data);
 				if(data == "Success!")
 				{
 					location.href="/Workspace";
