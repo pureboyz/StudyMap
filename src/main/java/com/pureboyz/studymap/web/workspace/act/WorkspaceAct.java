@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pureboyz.studymap.framework.beans.FrameworkBeans;
 import com.pureboyz.studymap.framework.mymap.MyCamelMap;
@@ -34,24 +35,23 @@ public class WorkspaceAct
 	
 	/**
 	 * <pre>
-	 * MethodName 	: Workspace
-	 * Date 		: 2019. 12. 8.
+	 * MethodName 	: AsideInfo
+	 * Date 		: 2019. 12. 14.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: Model
-	 * ReturnType 	: String
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: MyMap
 	 *
-	 * Workspace 메인 페이지로 이동.
+	 * Workspace의 aside에서 사용될 정보를 반환한다.
 	 * 
 	 * </pre>
 	 */
-	@RequestMapping(value= {"", "/"})
-	public String Workspace(Model model)
+	public MyMap AsideInfo(MyMap paramMap)
 	{
-		MyMap 				paramMap 		= FrameworkBeans.findHttpServletBean().findClientRequestParameter();
-		List<MyCamelMap> 	workspaceList 	= null;	// 로그인한 유저의 Workspace 목록
-		MyCamelMap 			workspaceMap 	= null;	// 선택된 Workspace
-		List<MyCamelMap> 	postingList 	= null;	// 선택된 Workspace의 PostingList
+		MyMap 				returnMap 		= new MyMap();
+		List<MyCamelMap> 	postingList 	= null;			// 선택된 Workspace의 PostingList
+		List<MyCamelMap> 	workspaceList 	= null;			// 로그인한 유저의 Workspace 목록
+		MyCamelMap 			workspaceMap 	= null;			// 선택된 Workspace
 		
 		workspaceList = workspaceService.SelectWorkspaceListBySequser(paramMap);
 		
@@ -72,16 +72,39 @@ public class WorkspaceAct
 		paramMap.put("seqworkspace", workspaceMap.getInt("seqworkspace"));
 		postingList = workspaceService.SelectPostingListBySeqworkspace(paramMap);
 		
-		model.addAttribute("workspaceList", workspaceList);
-		model.addAttribute("workspaceMap", 	workspaceMap);
-		model.addAttribute("postingList", 	postingList);
+		returnMap.put("workspaceList", 	workspaceList);
+		returnMap.put("workspaceMap", 	workspaceMap);
+		returnMap.put("postingList", 	postingList);
+		
+		return returnMap;
+	}
+	
+	/**
+	 * <pre>
+	 * MethodName 	: Workspace
+	 * Date 		: 2019. 12. 8.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Model
+	 * ReturnType 	: String
+	 *
+	 * Workspace 메인 페이지로 이동.
+	 * 
+	 * </pre>
+	 */
+	@RequestMapping(value= {"", "/"})
+	public String Workspace(Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		model.addAttribute("aside", AsideInfo(paramMap));
 		
 		return "/workspace/Workspace";
 	}
 	
 	/**
 	 * <pre>
-	 * MethodName 	: Index
+	 * MethodName 	: InsertWorkspace
 	 * Date 		: 2019. 12. 8.
 	 * Author 		: pureboyz
 	 * 
@@ -122,7 +145,7 @@ public class WorkspaceAct
 	 * Date 		: 2019. 12. 12.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: 
+	 * ParamsType 	: Model
 	 * ReturnType 	: String
 	 *
 	 * Posting 작성 페이지로 이동.
@@ -130,9 +153,38 @@ public class WorkspaceAct
 	 * </pre>
 	 */
 	@RequestMapping("/RegistPosting")
-	public String RegistPosting()
+	public String RegistPosting(Model model)
 	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		model.addAttribute("aside", AsideInfo(paramMap));
+		
 		return "/workspace/RegistPosting";
+	}
+	
+	/**
+	 * <pre>
+	 * MethodName 	: InsertPosting
+	 * Date 		: 2019. 12. 14.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Model
+	 * ReturnType 	: String
+	 *
+	 * Posting 등록.
+	 * 
+	 * </pre>
+	 */
+	@RequestMapping("/InsertPosting")
+	public String InsertPosting(Model model, RedirectAttributes rttr)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		workspaceService.InsertPosting(paramMap);
+		
+		rttr.addAttribute("seqworkspace", paramMap.getInt("seqworkspace"));
+		
+		return "redirect:/Workspace";
 	}
 	
 }

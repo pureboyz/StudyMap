@@ -28,6 +28,8 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+	$("[name=id]").focus();
+	
 	$("input").on("keyup", function(event){
 		if(event.keyCode == 13)
 		{

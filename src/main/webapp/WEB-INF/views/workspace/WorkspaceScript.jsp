@@ -29,12 +29,6 @@ function fn_AddWorkspace()
 	});
 }
 
-// Workspace 이동.
-function fn_ChangeWorkspace(seqworkspace)
-{
-	$("[name=seqworkspace]").val(seqworkspace);
-	$("[name=changeWorkspace]").submit();
-}
 $(document).ready(function(){
 	// Add 버튼 (+)
 	$(".btnAdd").click(function(){
@@ -54,7 +48,7 @@ $(document).ready(function(){
 	
 	// 등록 버튼
 	$("#btnRegist").click(function(){
-		location.href="/Workspace/RegistPosting";
+		$("[name=formRegist]").submit();
 	});
 	
 });

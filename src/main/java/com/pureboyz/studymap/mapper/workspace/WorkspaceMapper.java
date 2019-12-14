@@ -98,4 +98,19 @@ public interface WorkspaceMapper
 	 */
 	List<MyCamelMap> SelectPostingListBySeqworkspace(MyMap paramMap);
 
+	/**
+	 * <pre>
+	 * MethodName 	: InsertPosting
+	 * Date 		: 2019. 12. 14.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: int
+	 *
+	 * Posting 등록.
+	 * 
+	 * </pre>
+	 */
+	int InsertPosting(MyMap paramMap);
+
 }

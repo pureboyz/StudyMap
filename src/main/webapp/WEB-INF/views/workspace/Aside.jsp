@@ -11,12 +11,12 @@
 	<div class="container">
 		<h1>Workspace</h1>
 		<ul>
-			<c:forEach items="${workspaceList}" var="workspace">
+			<c:forEach items="${aside.workspaceList}" var="workspace">
 				<li onclick="javascript:fn_ChangeWorkspace('${workspace.seqworkspace}');">
 					<span>
 						<img alt="list" src="/images/file-list-2-line.png"/>
 						<span>&nbsp;&nbsp;${workspace.workspaceTitle}</span>
-						<c:if test="${workspaceMap.seqworkspace eq workspace.seqworkspace}">&nbsp;<img class="selected" alt="select" src="/images/heart-fill.png"/></c:if>
+						<c:if test="${aside.workspaceMap.seqworkspace eq workspace.seqworkspace}">&nbsp;<img class="selected" alt="select" src="/images/heart-fill.png"/></c:if>
 					</span>
 				</li>
 			</c:forEach>
@@ -24,3 +24,12 @@
 		</ul>
 	</div>
 </aside>
+
+<script type="text/javascript">
+//Workspace 이동.
+function fn_ChangeWorkspace(seqworkspace)
+{
+	$("[name=seqworkspace]").val(seqworkspace);
+	$("[name=changeWorkspace]").submit();
+}
+</script>

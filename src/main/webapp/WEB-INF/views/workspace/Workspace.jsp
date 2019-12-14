@@ -12,7 +12,7 @@
 	<section>
 		<div class="container">
 			<c:choose>
-				<c:when test="${fn:length(workspaceList) > 0}">
+				<c:when test="${fn:length(aside.workspaceList) > 0}">
 					<div class="postingList">
 						<div class="tableBox">
 							<table>
@@ -34,12 +34,12 @@
 								</thead>
 								<tbody>
 									<c:choose>
-										<c:when test="${fn:length(postingList) > 0}">
-											<c:forEach items="${postingList}" var="posting">
+										<c:when test="${fn:length(aside.postingList) > 0}">
+											<c:forEach items="${aside.postingList}" var="posting">
 												<tr>
 													<td><span><input type="checkbox" /></span></td>
-													<td><span>${posting.seqpostinglist}</span></td>
-													<td><span class="pointer">${posting.postingtitle}</span></td>
+													<td><span>${posting.rowNum}</span></td>
+													<td><span class="pointer">${posting.postingTitle}</span></td>
 													<td><span>${posting.createdate}</span></td>
 													<td><span>${posting.postingWriter}</span></td>
 												</tr>
@@ -77,10 +77,13 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<div class="buttonBox">
-			<button type="button" class="btn-default" id="btnRegist">등록</button>
-			<button type="button" class="btn-default" id="btnDelete">삭제</button>
-		</div>
+		<form action="/Workspace/RegistPosting" name="formRegist" method="POST">
+			<div class="buttonBox">
+				<input type="hidden" name="seqworkspace" value="${aside.workspaceMap.seqworkspace}" />
+				<button type="button" class="btn-default" id="btnRegist">등록</button>
+				<button type="button" class="btn-default" id="btnDelete">삭제</button>
+			</div>
+		</form>
 	</section>
 </div>
 

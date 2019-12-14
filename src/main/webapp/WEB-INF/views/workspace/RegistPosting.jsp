@@ -11,8 +11,11 @@
 	
 	<section>
 		<div class="container">
-			<input type="text" class="inputTitle" name="postingTitle" autocomplete="off" maxlength="100" />
-			<textarea name="editor"></textarea>
+			<form action="/Workspace/InsertPosting" name="formRegist" method="POST">
+				<input type="hidden" name="seqworkspace" value="${aside.workspaceMap.seqworkspace}" />
+				<input type="text" class="inputTitle" name="postingTitle" placeholder="Title.." autocomplete="off" maxlength="100" />
+				<textarea name="postingContent"></textarea>
+			</form>
 		</div>
 		<div class="buttonBox">
 			<button type="button" class="btn-default" id="btnRegist">등록</button>

@@ -64,20 +64,52 @@
 	
 	<select id="SelectPostingListBySeqworkspace" parameterType="myMap" resultType="myCamelMap">
 		SELECT
-			 SEQPOSTINGLIST
-			,POSTING_TITLE
+			*
+		FROM
+		(
+			SELECT
+				 CAST(@ROWNUM:=@ROWNUM+1 AS SIGNED) AS ROW_NUM
+				,SEQPOSTINGLIST
+				,POSTING_TITLE
+				,POSTING_WRITER
+				,POSTING_CONTENTS
+				,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
+				,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
+				,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
+				,SEQUSERINFO
+				,SEQWORKSPACE
+			FROM
+				 POSTINGLIST T1
+				,(SELECT @ROWNUM:=0) TMP
+			WHERE 1=1
+				AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
+				AND SEQWORKSPACE 	= #{seqworkspace}
+			ORDER BY
+				CREATEDATE ASC
+		) T0
+		ORDER BY
+			ROW_NUM DESC
+	</select>
+	
+	<insert id="InsertPosting" parameterType="myMap">
+		INSERT INTO
+			POSTINGLIST
+		(
+			 POSTING_TITLE
 			,POSTING_WRITER
-			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
-			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
-			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
+			,POSTING_CONTENTS
+			,CREATEDATE
 			,SEQUSERINFO
 			,SEQWORKSPACE
-		FROM
-			POSTINGLIST
-		WHERE 1=1
-			AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
-			AND SEQWORKSPACE 	= #{seqworkspace}
-		ORDER BY
-			CREATEDATE DESC
-	</select>
+		)
+		VALUES
+		(
+			 #{postingTitle}
+			,#{SESSION_ID}
+			,#{postingContent}
+			,now()
+			,#{SESSION_SEQUSERINFO}
+			,#{seqworkspace}
+		)
+	</insert>
 </mapper>

@@ -27,7 +27,7 @@ public class WorkspaceService
 
 	/**
 	 * <pre>
-	 * MethodName 	: SelectWorkspaceList
+	 * MethodName 	: SelectWorkspaceListBySequser
 	 * Date 		: 2019. 12. 8.
 	 * Author 		: pureboyz
 	 * 
@@ -114,6 +114,24 @@ public class WorkspaceService
 	public List<MyCamelMap> SelectPostingListBySeqworkspace(MyMap paramMap)
 	{
 		return workspaceMapper.SelectPostingListBySeqworkspace(paramMap);
+	}
+
+	/**
+	 * <pre>
+	 * MethodName 	: InsertPosting
+	 * Date 		: 2019. 12. 14.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Model
+	 * ReturnType 	: int
+	 *
+	 * Posting 등록.
+	 * 
+	 * </pre>
+	 */
+	public int InsertPosting(MyMap paramMap)
+	{
+		return workspaceMapper.InsertPosting(paramMap);
 	}
 
 }
