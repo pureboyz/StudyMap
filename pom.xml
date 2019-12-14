@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pureboyz</groupId>
 	<artifactId>StudyMap</artifactId>
-	<version>20191214_002</version>
+	<version>20191214_003</version>
 	<packaging>war</packaging>
 	<name>StudyMap</name>
 	<description>StudyMap</description>
@@ -80,6 +80,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
