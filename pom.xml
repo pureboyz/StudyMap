@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pureboyz</groupId>
 	<artifactId>StudyMap</artifactId>
-	<version>20191214_001</version>
+	<version>20191214_002</version>
 	<packaging>war</packaging>
 	<name>StudyMap</name>
 	<description>StudyMap</description>
