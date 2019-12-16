@@ -29,6 +29,14 @@ function fn_AddWorkspace()
 	});
 }
 
+// Posting 상세
+function fn_DetailPosting(seqpostinglist)
+{
+	$("[name=seqpostinglist]").val(seqpostinglist);
+	
+	$("[name=formDetailPosting]").submit();
+}
+
 $(document).ready(function(){
 	// Add 버튼 (+)
 	$(".btnAdd").click(function(){

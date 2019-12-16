@@ -124,18 +124,48 @@ public interface WorkspaceMapper
 
 	
 	/**
-		 * <pre>
-		 * MethodName 	: DeletePosting
-		 * Date 		: 2019. 12. 14.
-		 * Author 		: pureboyz
-		 * 
-		 * ParamsType 	: MyMap
-		 * ReturnType 	: int
-		 *
-		 * Posting 삭제.
-		 * 
-		 * </pre>
-		 */
+	 * <pre>
+	 * MethodName 	: DeletePosting
+	 * Date 		: 2019. 12. 14.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: int
+	 *
+	 * Posting 삭제.
+	 * 
+	 * </pre>
+	 */
 	int DeletePosting(MyMap paramMap);
+
+	/**
+	 * <pre>
+	 * MethodName 	: SelectPostingBySeqpostinglist
+	 * Date 		: 2019. 12. 16.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: MyMap
+	 *
+	 *  Posting 상세 페이지.
+	 * 
+	 * </pre>
+	 */
+	MyMap SelectPostingBySeqpostinglist(MyMap paramMap);
+
+	/**
+	 * <pre>
+	 * MethodName 	: ModifyPosting
+	 * Date 		: 2019. 12. 16.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: int
+	 *
+	 * Posting 수정.
+	 * 
+	 * </pre>
+	 */
+	int ModifyPosting(MyMap paramMap);
 
 }

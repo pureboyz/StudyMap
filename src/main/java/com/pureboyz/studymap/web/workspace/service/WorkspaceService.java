@@ -152,4 +152,40 @@ public class WorkspaceService
 		return workspaceMapper.DeletePosting(paramMap);
 	}
 
+	/**
+	 * <pre>
+	 * MethodName 	: SelectPostingBySeqpostinglist
+	 * Date 		: 2019. 12. 16.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: MyMap
+	 *
+	 * Posting 상세 페이지.
+	 * 
+	 * </pre>
+	 */
+	public MyMap SelectPostingBySeqpostinglist(MyMap paramMap)
+	{
+		return workspaceMapper.SelectPostingBySeqpostinglist(paramMap);
+	}
+
+	/**
+	 * <pre>
+	 * MethodName 	: ModifyPosting
+	 * Date 		: 2019. 12. 16.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: 
+	 * ReturnType 	: intMyMap
+	 *
+	 * Posting 수정.
+	 * 
+	 * </pre>
+	 */
+	public int ModifyPosting(MyMap paramMap)
+	{
+		return workspaceMapper.ModifyPosting(paramMap);
+	}
+
 }

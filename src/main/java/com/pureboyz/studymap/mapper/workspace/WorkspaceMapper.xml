@@ -125,4 +125,34 @@
 		WHERE 1=1
 			AND SEQPOSTINGLIST IN ( ${seqpostinglist} )
 	</update>
+	
+	<select id="SelectPostingBySeqpostinglist" parameterType="myMap" resultType="myCamelMap">
+		SELECT
+			 SEQPOSTINGLIST
+			,POSTING_TITLE
+			,POSTING_WRITER
+			,POSTING_CONTENTS
+			,DATE_FORMAT(CREATEDATE, '%Y-%m-%d %H:%i:%s') AS CREATEDATE
+			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
+			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
+			,SEQUSERINFO
+			,SEQWORKSPACE
+		FROM
+			POSTINGLIST
+		WHERE 1=1
+			AND DELETEDATE IS NULL
+			AND SEQPOSTINGLIST = #{seqpostinglist}
+	</select>
+	
+	<update id="ModifyPosting" parameterType="myMap">
+		UPDATE
+			POSTINGLIST
+		SET
+			 POSTING_TITLE = #{postingTitle}
+			,POSTING_CONTENTS = #{postingContent}
+			,UPDATEDATE = NOW()
+		WHERE 1=1
+			AND DELETEDATE IS NULL
+			AND SEQPOSTINGLIST = #{seqpostinglist}
+	</update>
 </mapper>

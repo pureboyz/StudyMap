@@ -44,6 +44,9 @@ public class WorkspaceAct
 	 *
 	 * Workspace의 aside에서 사용될 정보를 반환한다.
 	 * 
+	 * 필수 parameter
+	 * ${SESSION_SEQUSERINFO}, ${seqworkspace}
+	 * 
 	 * </pre>
 	 */
 	public MyMap AsideInfo(MyMap paramMap)
@@ -90,6 +93,9 @@ public class WorkspaceAct
 	 *
 	 * Workspace 메인 페이지로 이동.
 	 * 
+	 * 필수 parameter
+	 * ${SESSION_SEQUSERINFO}, ${seqworkspace}
+	 * 
 	 * </pre>
 	 */
 	@RequestMapping(value= {"", "/"})
@@ -112,6 +118,9 @@ public class WorkspaceAct
 	 * ReturnType 	: ResultMessage
 	 *
 	 * Workspace 등록
+	 * 
+	 * 필수 parameter
+	 * ${workspaceTitle}, ${SESSION_SEQUSERINFO}
 	 * 
 	 * </pre>
 	 */
@@ -150,6 +159,9 @@ public class WorkspaceAct
 	 *
 	 * Posting 작성 페이지로 이동.
 	 * 
+	 * 필수 parameter
+	 * ${SESSION_SEQUSERINFO}, ${seqworkspace}
+	 * 
 	 * </pre>
 	 */
 	@RequestMapping("/RegistPosting")
@@ -168,10 +180,13 @@ public class WorkspaceAct
 	 * Date 		: 2019. 12. 14.
 	 * Author 		: pureboyz
 	 * 
-	 * ParamsType 	: Model
+	 * ParamsType 	: Model, RedirectAttributes
 	 * ReturnType 	: String
 	 *
 	 * Posting 등록.
+	 * 
+	 * 필수 parameter
+	 * #{postingTitle}, #{SESSION_ID}, #{postingContent}, #{SESSION_SEQUSERINFO}, #{seqworkspace}
 	 * 
 	 * </pre>
 	 */
@@ -198,6 +213,9 @@ public class WorkspaceAct
 		 *
 		 * Posting 삭제.
 		 * 
+		 * 필수 parameter
+		 * ${seqpostinglist}
+		 * 
 		 * </pre>
 		 */
 	@RequestMapping("/DeletePosting")
@@ -215,6 +233,60 @@ public class WorkspaceAct
 		{
 			return new ResultMessage(ResultCode.RESULT_BAD_REQUEST, "Fail!");
 		}
+	}
+	
+	/**
+	 * <pre>
+	 * MethodName 	: DetailPosting
+	 * Date 		: 2019. 12. 16.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Model
+	 * ReturnType 	: String
+	 *
+	 * Posting 상세 페이지.
+	 *
+	 * 필수 parameter
+	 * ${SESSION_SEQUSERINFO}, ${seqworkspace}, #{seqpostinglist}
+	 * 
+	 * </pre>
+	 */
+	@RequestMapping("/DetailPosting")
+	public String DetailPosting(Model model)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		MyMap postingMap = workspaceService.SelectPostingBySeqpostinglist(paramMap);
+		
+		model.addAttribute("aside", 		AsideInfo(paramMap));
+		model.addAttribute("postingMap", 	postingMap);
+		
+		return "/workspace/DetailPosting";
+	}
+	
+	/**
+	 * <pre>
+	 * MethodName 	: ModifyPosting
+	 * Date 		: 2019. 12. 16.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: Model, RedirectAttributes
+	 * ReturnType 	: String
+	 *
+	 * Posting 수정.
+	 * 
+	 * </pre>
+	 */
+	@RequestMapping("/ModifyPosting")
+	public String ModifyPosting(Model model, RedirectAttributes rttr)
+	{
+		MyMap paramMap = FrameworkBeans.findHttpServletBean().findClientRequestParameter();
+		
+		workspaceService.ModifyPosting(paramMap);
+		
+		rttr.addAttribute("seqworkspace", paramMap.getInt("seqworkspace"));
+		
+		return "redirect:/Workspace";
 	}
 	
 }

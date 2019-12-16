@@ -39,7 +39,7 @@
 												<tr>
 													<td><span><input type="checkbox" value="${posting.seqpostinglist}" /></span></td>
 													<td><span>${posting.rowNum}</span></td>
-													<td><span class="pointer">${posting.postingTitle}</span></td>
+													<td><span class="pointer" onclick="javascript:fn_DetailPosting('${posting.seqpostinglist}');">${posting.postingTitle}</span></td>
 													<td><span>${posting.createdate}</span></td>
 													<td><span>${posting.postingWriter}</span></td>
 												</tr>
@@ -86,6 +86,11 @@
 		</form>
 	</section>
 </div>
+
+<form action="/Workspace/DetailPosting" name="formDetailPosting" method="POST">
+	<input type="hidden" name="seqworkspace" value="${aside.workspaceMap.seqworkspace}" />
+	<input type="hidden" name="seqpostinglist" value="" />
+</form>
 
 </BaseTag:layout>
 <%@ include file="WorkspaceScript.jsp" %>
