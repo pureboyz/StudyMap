@@ -78,7 +78,14 @@ public class WorkspaceAct
 			
 		}
 		
-		paramMap.put("seqworkspace", workspaceMap.getInt("seqworkspace"));
+		try
+		{
+			paramMap.put("seqworkspace", workspaceMap.getInt("seqworkspace", 0));
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		postingListCnt 		= workspaceService.SelectPostingListCount(paramMap);
 		postingPagination 	= paginationUtil.getPagination(paramMap, paramMap.getInt("page", 1), postingListCnt, 15, 10);
 		postingList 		= workspaceService.SelectPostingListBySeqworkspace(paramMap);
