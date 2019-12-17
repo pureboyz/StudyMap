@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.pureboyz.studymap.framework.beans.FrameworkBeans;
 import com.pureboyz.studymap.framework.mymap.MyCamelMap;
 import com.pureboyz.studymap.framework.mymap.MyMap;
+import com.pureboyz.studymap.framework.pagination.PaginationUtil;
 import com.pureboyz.studymap.framework.result.ResultCode;
 import com.pureboyz.studymap.framework.result.ResultMessage;
 import com.pureboyz.studymap.web.workspace.service.WorkspaceService;
@@ -33,6 +34,9 @@ public class WorkspaceAct
 	@Resource(name="com.pureboyz.studymap.web.workspace.service.WorkspaceService")
 	WorkspaceService workspaceService;
 	
+	@Resource(name="PaginationUtil")
+	PaginationUtil paginationUtil;
+	
 	/**
 	 * <pre>
 	 * MethodName 	: AsideInfo
@@ -51,10 +55,12 @@ public class WorkspaceAct
 	 */
 	public MyMap AsideInfo(MyMap paramMap)
 	{
-		MyMap 				returnMap 		= new MyMap();
-		List<MyCamelMap> 	postingList 	= null;			// 선택된 Workspace의 PostingList
-		List<MyCamelMap> 	workspaceList 	= null;			// 로그인한 유저의 Workspace 목록
-		MyCamelMap 			workspaceMap 	= null;			// 선택된 Workspace
+		MyMap 				returnMap 			= new MyMap();
+		List<MyCamelMap> 	workspaceList 		= null;				// 로그인한 유저의 Workspace 목록
+		MyCamelMap 			workspaceMap 		= null;				// 선택된 Workspace
+		List<MyCamelMap> 	postingList 		= null;				// 선택된 Workspace의 PostingList
+		int 				postingListCnt		= 0;				// 선택된 Workspace의 PostingList 총 갯수
+		MyMap 				postingPagination 	= new MyMap();	// 페이징객체
 		
 		workspaceList = workspaceService.SelectWorkspaceListBySequser(paramMap);
 		
@@ -73,11 +79,16 @@ public class WorkspaceAct
 		}
 		
 		paramMap.put("seqworkspace", workspaceMap.getInt("seqworkspace"));
-		postingList = workspaceService.SelectPostingListBySeqworkspace(paramMap);
+		postingListCnt 		= workspaceService.SelectPostingListCount(paramMap);
+		postingPagination 	= paginationUtil.getPagination(paramMap, paramMap.getInt("page", 1), postingListCnt, 15, 10);
+		postingList 		= workspaceService.SelectPostingListBySeqworkspace(paramMap);
 		
-		returnMap.put("workspaceList", 	workspaceList);
-		returnMap.put("workspaceMap", 	workspaceMap);
-		returnMap.put("postingList", 	postingList);
+		returnMap.put("workspaceList", 		workspaceList);
+		returnMap.put("workspaceMap", 		workspaceMap);
+		returnMap.put("postingList", 		postingList);
+		returnMap.put("postingPagination", 	postingPagination);
+		
+		System.out.println("postingPagination : " + postingPagination);
 		
 		return returnMap;
 	}

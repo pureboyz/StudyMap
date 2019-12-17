@@ -93,6 +93,18 @@
 		) T0
 		ORDER BY
 			ROW_NUM DESC
+		LIMIT #{start}, #{countPerPage}
+	</select>
+	
+	<select id="SelectPostingListCount" parameterType="myMap" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			 POSTINGLIST T1
+		WHERE 1=1
+			AND SEQUSERINFO 	= #{SESSION_SEQUSERINFO}
+			AND SEQWORKSPACE 	= #{seqworkspace}
+			AND DELETEDATE IS NULL
 	</select>
 	
 	<insert id="InsertPosting" parameterType="myMap">

@@ -118,6 +118,24 @@ public class WorkspaceService
 
 	/**
 	 * <pre>
+	 * MethodName 	: SelectPostingListCount
+	 * Date 		: 2019. 12. 17.
+	 * Author 		: pureboyz
+	 * 
+	 * ParamsType 	: MyMap
+	 * ReturnType 	: int
+	 *
+	 * 선택된 Workspace의 PostingList 총 갯수
+	 * 
+	 * </pre>
+	 */
+	public int SelectPostingListCount(MyMap paramMap)
+	{
+		return workspaceMapper.SelectPostingListCount(paramMap);
+	}
+
+	/**
+	 * <pre>
 	 * MethodName 	: InsertPosting
 	 * Date 		: 2019. 12. 14.
 	 * Author 		: pureboyz

@@ -54,20 +54,11 @@
 								</tbody>
 							</table>
 						</div>
-						<div class="pagination">
-							<span><img alt="left" src="/images/arrow-left-s-line.png"/></span>
-							<c:forEach var="i" begin="1" end="10" step="1">
-								<c:choose>
-									<c:when test="${i eq 4}">
-										<span class="on">${i}</span>
-									</c:when>
-									<c:otherwise>
-										<span>${i}</span>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							<span><img alt="rightt" src="/images/arrow-right-s-line.png"/></span>
-						</div>
+						
+						<!-- pagination -->
+						<BaseTag:page/>
+						<!-- //pagination -->
+						
 					</div>
 				</c:when>
 				<c:otherwise>
