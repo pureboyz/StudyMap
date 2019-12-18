@@ -4,6 +4,7 @@
 CKEDITOR.replace('postingContent', {
 	 extraPlugins: 'codesnippet'
 	,height: 500
+	,filebrowserUploadUrl: '${pageContext.request.contextPath}/adm/fileupload.do'
 });
 
 $(document).ready(function(){

@@ -8,7 +8,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/ckeditor/ckeditor.js?20191218_001"></script>
 
 <link type="text/css" rel="stylesheet" href="/css/style.css?20191212_003">
 <link type="text/css" rel="stylesheet" href="/css/default.css?20191209_001">

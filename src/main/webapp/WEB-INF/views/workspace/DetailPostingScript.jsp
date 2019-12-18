@@ -2,8 +2,9 @@
 <script type="text/javascript">
 // ckeditor textarea의 name을 editor로 지정.
 CKEDITOR.replace('postingContent', {
-	 extraPlugins: 'codesnippet'
-	,height: 500
+	 extraPlugins : 'codesnippet'
+	,height : 500
+	,filebrowserUploadUrl : '${pageContext.request.contextPath}/adm/fileupload.do'
 });
 
 $(document).ready(function(){

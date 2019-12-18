@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pureboyz</groupId>
 	<artifactId>StudyMap</artifactId>
-	<version>20191217_002</version>
+	<version>20191218_001</version>
 	<packaging>war</packaging>
 	<name>StudyMap</name>
 	<description>StudyMap</description>
@@ -71,6 +71,12 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.2</version>
 		</dependency>
 	</dependencies>
 
