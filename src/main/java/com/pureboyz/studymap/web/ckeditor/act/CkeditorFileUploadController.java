@@ -24,7 +24,7 @@ import com.google.gson.JsonObject;
 @RequestMapping("/adm")
 public class CkeditorFileUploadController
 {
-	@RequestMapping(value="fileupload.do", method=RequestMethod.POST)
+	@RequestMapping(value="fileupload.do")
 	@ResponseBody
 	public String fileUpload(HttpServletRequest req, HttpServletResponse resp, 
                  MultipartHttpServletRequest multiFile) throws Exception {
