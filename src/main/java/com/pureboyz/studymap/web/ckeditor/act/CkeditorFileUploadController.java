@@ -40,9 +40,16 @@ public class CkeditorFileUploadController
 						byte[] bytes = file.getBytes();
 //						String uploadPath = req.getServletContext().getRealPath("/img");
 						String uploadPath = "/home/pureboyz/StudyMap/images";
+						System.out.println("uploadPath : "+uploadPath);
 						File uploadFile = new File(uploadPath);
-						if(!uploadFile.exists()){
+						if(!uploadFile.exists())
+						{
+							System.out.println("NOT EXIST..");
 							uploadFile.mkdirs();
+						}
+						else
+						{
+							System.out.println("EXIST..");
 						}
 						fileName = UUID.randomUUID().toString();
 						uploadPath = uploadPath + "/" + fileName;
@@ -52,7 +59,8 @@ public class CkeditorFileUploadController
                         printWriter = resp.getWriter();
                         resp.setContentType("text/html");
 //                        String fileUrl = req.getContextPath() + "/img/" + fileName;
-                        String fileUrl = "/home/pureboyz/StudyMap/images/" + fileName;
+                        String fileUrl = "http://pureboyz.ml:8081/images/" + fileName;
+                        System.out.println("fileUrl : "+fileUrl);
                         
                         // json 데이터로 등록
                         // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
