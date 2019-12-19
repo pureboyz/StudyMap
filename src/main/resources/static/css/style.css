@@ -49,6 +49,7 @@ section .container .postingList .tableBox table { width:100%;text-align:center;b
 section .container .postingList .tableBox table thead tr { background:#eee; }
 section .container .postingList .tableBox table th { font-size:18px;line-height:2;border-bottom:1px solid #ccc; }
 section .container .postingList .tableBox table td { font-size:15px;line-height:2.5;border-bottom:1px solid #ccc; }
+section .container .postingList .tableBox table td span.tblTitle { font-weight:bold; }
 section .container .postingList .pagination { text-align:center;padding-top:30px;font-size:20px; }
 section .container .postingList .pagination span { text-align:center;padding:5px;cursor:pointer;color:#888888; }
 section .container .postingList .pagination span.on { color:#252525;font-weight:bold; }

@@ -39,7 +39,7 @@
 												<tr>
 													<td><span><input type="checkbox" value="${posting.seqpostinglist}" /></span></td>
 													<td><span>${posting.rowNum}</span></td>
-													<td><span class="pointer" onclick="javascript:fn_DetailPosting('${posting.seqpostinglist}');">${posting.postingTitle}</span></td>
+													<td><span class="pointer tblTitle" onclick="javascript:fn_DetailPosting('${posting.seqpostinglist}');">${posting.postingTitle}</span></td>
 													<td><span>${posting.createdate}</span></td>
 													<td><span>${posting.postingWriter}</span></td>
 												</tr>
