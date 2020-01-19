@@ -10,12 +10,13 @@
 			,DATE_FORMAT(UPDATEDATE, '%Y-%m-%d %H:%i:%s') AS UPDATEDATE
 			,DATE_FORMAT(DELETEDATE, '%Y-%m-%d %H:%i:%s') AS DELETEDATE
 			,SEQUSERINFO
+			,ETC1
 		FROM
 			WORKSPACE
 		WHERE 1=1
 			AND SEQUSERINFO = #{SESSION_SEQUSERINFO}
 			AND DELETEDATE IS NULL
-		ORDER BY CREATEDATE ASC
+		ORDER BY ETC1 ASC
 	</select>
 	
 	<select id="SelectWorkspaceByTitleAndSequser" parameterType="myMap" resultType="myCamelMap">
